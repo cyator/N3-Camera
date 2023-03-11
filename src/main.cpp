@@ -7,10 +7,10 @@
 
 #include "camera_pins.h"
 
-const char *ssid = "S7 edge";
-const char *password = "almg76061";
+const char *ssid = "onboard";
+const char *password = "987654321";
 
-const char *websockets_server_host = "192.168.43.104";
+const char *websockets_server_host = "192.168.0.100";
 const uint16_t websockets_server_port = 3000;
 
 using namespace websockets;
@@ -206,6 +206,8 @@ void setup()
   // drop down frame size for higher initial frame rate
   s->set_framesize(s, FRAMESIZE_QVGA);
   WiFi.begin(ssid, password);
+  Serial.println("ssid: ");
+  Serial.println(ssid);
 
   while (WiFi.status() != WL_CONNECTED)
   {
